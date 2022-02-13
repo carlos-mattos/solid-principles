@@ -37,7 +37,9 @@ class UsersRepository implements IUsersRepository {
     return this.users.find((user) => user.id === id);
   }
 
-  findByEmail(email: string): User | undefined {}
+  findByEmail(email: string): User | undefined {
+    return this.users.find((user) => user.email === email);
+  }
 
   turnAdmin(receivedUser: User): User {
     const user = this.findById(receivedUser.id);
@@ -48,7 +50,9 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  list(): User[] {}
+  list(): User[] {
+    return this.users;
+  }
 }
 
 export { UsersRepository };
