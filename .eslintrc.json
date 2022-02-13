@@ -18,7 +18,14 @@
   "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier"],
   "rules": {
     "camelcase": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "singleQuote": false,
+      // "trailingComma": "all",
+      "bracketSpacing": true,
+      "jsxBracketSameLine": false,
+      "endOfLine": "auto",
+      "useTabs": false
+    }],
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
       "error",
@@ -51,12 +58,17 @@
         // example configuration
         "newlinesBetween": "always",
         "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
       }
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.ts"] }
+      {
+        "devDependencies": ["**/*.spec.ts"]
+      }
     ]
   },
   "settings": {
